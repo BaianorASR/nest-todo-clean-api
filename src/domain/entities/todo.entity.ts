@@ -1,27 +1,40 @@
-import { TodoEntityProps } from '@domain/interfaces/todo-entity-props.interface';
+import { ITodoEntityProps } from '@domain/interfaces/todo-entity-props.interface';
 import { BaseEntity } from './base.entity';
 import { EntityDateTime } from '@domain/interfaces/entity-datetime.interface';
 import { TodoContentEntity } from './todo-content.entity';
+import { ReplaceType } from '@libs/@types/replace.type';
 
-export class TodoEntity extends BaseEntity<TodoEntityProps> {
-  constructor(props: TodoEntityProps, id?: string) {
+export class TodoEntity extends BaseEntity<ITodoEntityProps> {
+  constructor(
+    props: ReplaceType<ITodoEntityProps, { createdAt?: Date }>,
+    id?: string,
+  ) {
     super(props, id);
   }
 
   get id(): string {
-    return this.props.id;
+    return this._id;
   }
 
   get owner(): string {
     return this.props.owner;
   }
+  set owner(owner: string) {
+    this.props.owner = owner;
+  }
 
   get ownerId(): string {
     return this.props.ownerId;
   }
+  set ownerId(ownerId: string) {
+    this.props.ownerId = ownerId;
+  }
 
   get content(): TodoContentEntity {
     return this.props.content;
+  }
+  set content(content: TodoContentEntity) {
+    this.props.content = content;
   }
 
   get createdAt(): Date {
@@ -32,7 +45,7 @@ export class TodoEntity extends BaseEntity<TodoEntityProps> {
     return this.props.deletedAt;
   }
 
-  public delete() {
+  public delete(): void {
     this.props.deletedAt = new Date();
   }
 
@@ -40,11 +53,11 @@ export class TodoEntity extends BaseEntity<TodoEntityProps> {
     return this.props.completedAt;
   }
 
-  public complete() {
+  public complete(): void {
     this.props.completedAt = new Date();
   }
 
-  public unComplete() {
+  public unComplete(): void {
     this.props.completedAt = null;
   }
 }

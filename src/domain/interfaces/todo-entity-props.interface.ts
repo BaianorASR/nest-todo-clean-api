@@ -1,7 +1,7 @@
 import { TodoContentEntity } from '@domain/entities/todo-content.entity';
+import { IBaseEntityProps } from './base-entity-props.interface';
 
-export interface TodoEntityProps {
-  id: string;
+export interface ITodoEntityProps extends IBaseEntityProps {
   owner: string;
   ownerId: string;
   content: TodoContentEntity;

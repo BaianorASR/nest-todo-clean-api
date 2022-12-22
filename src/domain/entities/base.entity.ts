@@ -1,13 +1,18 @@
 import { randomUUID } from 'node:crypto';
+import { IBaseEntityProps } from '@domain/interfaces/base-entity-props.interface';
+import { ReplaceType } from '@libs/@types/replace.type';
 
-type TBaseEntityProps<P> = P & { createdAt?: Date };
-
-export abstract class BaseEntity<T> {
+export abstract class BaseEntity<
+  T extends IBaseEntityProps = IBaseEntityProps,
+> {
   protected _id: string;
-  protected props: T;
+  protected props: T = <T>{};
 
-  constructor(props: TBaseEntityProps<T>, id?: string) {
+  constructor(props: ReplaceType<T, { createdAt?: Date }>, id?: string) {
     this._id = id ?? randomUUID();
-    this.props = { ...props, createdAt: props.createdAt ?? new Date() };
+
+    Object.assign(this.props, props, {
+      createdAt: props.createdAt ?? new Date(),
+    });
   }
 }

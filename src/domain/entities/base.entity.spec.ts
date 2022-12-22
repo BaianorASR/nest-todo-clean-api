@@ -1,24 +1,29 @@
+import { IBaseEntityProps } from '@domain/interfaces/base-entity-props.interface';
 import { BaseEntity } from './base.entity';
 
 import { randomUUID } from 'node:crypto';
+import { ReplaceType } from '@libs/@types/replace.type';
 
-type TestEntityProps = { name: string } & { createdAt?: Date };
-
-class TestEntity extends BaseEntity<TestEntityProps> {
-  constructor(props: TestEntityProps, id?: string) {
-    super(props, id);
-  }
-
-  get testProps() {
-    return this.props;
-  }
-
-  get testId() {
-    return this._id;
-  }
-}
+type TestEntityProps = { name: string } & IBaseEntityProps;
 
 describe('BaseEntity', () => {
+  class TestEntity extends BaseEntity<TestEntityProps> {
+    constructor(
+      props: ReplaceType<TestEntityProps, { createdAt?: Date }>,
+      id?: string,
+    ) {
+      super(props, id);
+    }
+
+    get testProps() {
+      return this.props;
+    }
+
+    get testId() {
+      return this._id;
+    }
+  }
+
   test('should be able to create an instance', () => {
     const entity = new TestEntity({ name: 'Test' });
     expect(entity).toBeInstanceOf(TestEntity);
