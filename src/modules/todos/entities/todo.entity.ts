@@ -1,8 +1,8 @@
-import { ITodoEntityProps } from '@domain/interfaces/todo-entity-props.interface';
-import { BaseEntity } from '../base.entity';
-import { EntityDateTime } from '@domain/interfaces/entity-datetime.interface';
+import { BaseEntity } from '@libs/entities/base.entity';
 import { TodoContentEntity } from './todo-content.entity';
 import { ReplaceType } from '@libs/@types/replace.type';
+import { ITodoEntityProps } from '@todos/interfaces/todo-entity-props.interface';
+import { EntityDateTime } from '@libs/@types/entity-datetime.type';
 
 export class TodoEntity extends BaseEntity<ITodoEntityProps> {
   constructor(

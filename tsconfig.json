@@ -21,10 +21,7 @@
     "noFallthroughCasesInSwitch": false,
     "resolveJsonModule": true,
     "paths": {
-      "@app/*": ["./src/app/*"],
-      "@infra/*": ["./src/infra/*"],
-      "@domain/*": ["./src/domain/*"],
-      "@api/*": ["./src/api/*"],
+      "@todos/*": ["./src/modules/todos/*"],
       "@libs/*": ["./src/libs/*"],
       "@test/*": ["./test/*"]
     }

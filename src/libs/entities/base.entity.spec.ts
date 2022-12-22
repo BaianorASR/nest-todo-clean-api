@@ -1,8 +1,8 @@
-import { IBaseEntityProps } from '@domain/interfaces/base-entity-props.interface';
 import { BaseEntity } from './base.entity';
 
 import { randomUUID } from 'node:crypto';
 import { ReplaceType } from '@libs/@types/replace.type';
+import { IBaseEntityProps } from '@libs/interfaces/base-entity-props.interface';
 
 type TestEntityProps = { name: string } & IBaseEntityProps;
 

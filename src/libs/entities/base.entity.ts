@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
-import { IBaseEntityProps } from '@domain/interfaces/base-entity-props.interface';
 import { ReplaceType } from '@libs/@types/replace.type';
+import { IBaseEntityProps } from '@libs/interfaces/base-entity-props.interface';
 
 export abstract class BaseEntity<
   T extends IBaseEntityProps = IBaseEntityProps,
