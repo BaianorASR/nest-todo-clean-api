@@ -10,6 +10,10 @@ export default async (): Promise<Config> => ({
     '^.+\\.(t|j)s$': 'ts-jest',
   },
   collectCoverageFrom: ['<rootDir>/src/**/*.(t|j)s'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/main.ts',
+    '<rootDir>/src/app.module.ts',
+  ],
   coverageDirectory: '../coverage',
   testEnvironment: 'node',
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {

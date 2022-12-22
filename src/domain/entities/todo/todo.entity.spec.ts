@@ -1,12 +1,12 @@
 import { TodoEntity } from './todo.entity';
 import { TodoContentEntity } from './todo-content.entity';
-import { makeTodoEntity } from '@test/factories/make-todo.factory';
+import { makeTodoEntityFactory } from '@test/factories/make-todo.factory';
 
 describe('TodoEntity', () => {
   let todoEntity: TodoEntity;
 
   beforeEach(() => {
-    todoEntity = makeTodoEntity({
+    todoEntity = makeTodoEntityFactory({
       ownerId: '123',
     });
   });

@@ -1,7 +1,7 @@
 import { UnprocessableEntityException } from '@nestjs/common';
 
 export class TodoContentEntity {
-  private content: string;
+  private readonly content: string;
 
   get value(): string {
     return this.content;

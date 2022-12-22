@@ -1,5 +1,5 @@
 import { ITodoEntityProps } from '@domain/interfaces/todo-entity-props.interface';
-import { BaseEntity } from './base.entity';
+import { BaseEntity } from '../base.entity';
 import { EntityDateTime } from '@domain/interfaces/entity-datetime.interface';
 import { TodoContentEntity } from './todo-content.entity';
 import { ReplaceType } from '@libs/@types/replace.type';
